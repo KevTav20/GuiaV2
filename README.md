@@ -400,17 +400,6 @@ Definen qué NO está permitido
 | **Restricción** | ¿Qué limitaciones tiene? | "Debe usar Oracle 19c" | Arquitectos, admins | Documento restricciones |
 | **Regla Negocio** | ¿Qué políticas del negocio aplican? | "VIP = compras >$5K últimos 12 meses" | Analistas negocio | Manual de políticas |
 
----
-
-### CONTINUARÁ...
-
-Este es el nivel de detalle extendido. ¿Deseas que continúe con el mismo nivel de profundidad para:
-- Atributos de Calidad (ISO 25010 completo)
-- Documento SRS
-- Técnicas de Elicitación
-- Y el resto de las 4 áreas?
-
-
 ### 1.1 ATRIBUTOS DE CALIDAD (ISO 25010)
 
 **FUENTES: Wiegers Cap.14 p.261-280 + Cervantes Cap.2 p.9-46**
