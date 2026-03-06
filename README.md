@@ -77,7 +77,7 @@
 - Son el "QUÉ DETALLADO" desde perspectiva técnica
 - Responden: ¿Exactamente qué debe hacer el sistema?
 - Audiencia: Desarrolladores, arquitectos, testers
-- Formato: Especificación formal con "shall"
+- Formato: Especificación formal con "deberá"
 - Se documentan en: SRS (Software Requirements Specification)
 
 **Se dividen en 4 categorías:**
@@ -86,12 +86,12 @@
 
 **Definición:** Describen las acciones específicas que el sistema debe realizar, las transformaciones de datos, los cálculos, y los servicios que el sistema debe proveer.
 
-**Plantilla estándar:** "El sistema shall [acción] [objeto] [condición] [criterio de rendimiento]"
+**Plantilla estándar:** "El sistema deberá [acción] [objeto] [condición] [criterio de rendimiento]"
 
 **Ejemplos Detallados:**
 
 ✅ **Ejemplo 1 - E-commerce:**
-"El sistema shall enviar un correo electrónico de confirmación al usuario dentro de 30 segundos después de completar exitosamente el registro de una cuenta nueva"
+"El sistema deberá enviar un correo electrónico de confirmación al usuario dentro de 30 segundos después de completar exitosamente el registro de una cuenta nueva"
 
 Desglose:
 - Acción: enviar correo electrónico de confirmación
@@ -100,7 +100,7 @@ Desglose:
 - Criterio rendimiento: dentro de 30 segundos
 
 ✅ **Ejemplo 2 - Sistema Bancario:**
-"El sistema shall calcular el saldo disponible de una cuenta restando los cargos pendientes del saldo actual y agregando los depósitos en tránsito"
+"El sistema deberá calcular el saldo disponible de una cuenta restando los cargos pendientes del saldo actual y agregando los depósitos en tránsito"
 
 Desglose:
 - Acción: calcular saldo disponible
@@ -109,13 +109,13 @@ Desglose:
 - Criterio: fórmula específica definida
 
 ✅ **Ejemplo 3 - Sistema de Inventario:**
-"El sistema shall enviar una alerta automática al gerente de compras cuando el inventario de cualquier producto caiga por debajo del punto de reorden definido para ese producto"
+"El sistema deberá enviar una alerta automática al gerente de compras cuando el inventario de cualquier producto caiga por debajo del punto de reorden definido para ese producto"
 
 ✅ **Ejemplo 4 - Sistema de Reservaciones:**
-"El sistema shall permitir al usuario cancelar una reservación hasta 24 horas antes de la fecha programada sin penalización"
+"El sistema deberá permitir al usuario cancelar una reservación hasta 24 horas antes de la fecha programada sin penalización"
 
 ✅ **Ejemplo 5 - Sistema Educativo:**
-"El sistema shall calcular el promedio final de un estudiante ponderando los exámenes parciales con 30%, tareas con 20%, proyecto final con 30%, y participación con 20%"
+"El sistema deberá calcular el promedio final de un estudiante ponderando los exámenes parciales con 30%, tareas con 20%, proyecto final con 30%, y participación con 20%"
 
 **Características clave de buenos RF:**
 - Usan verbo de acción observable: enviar, calcular, mostrar, almacenar, validar, generar
@@ -126,15 +126,15 @@ Desglose:
 **Ejemplos Malos (y cómo corregirlos):**
 
 ❌ "El sistema debe ser rápido"
-✅ "El sistema shall retornar resultados de búsqueda en menos de 2 segundos en el percentil 95 de las consultas bajo carga de 1000 usuarios concurrentes"
+✅ "El sistema deberá retornar resultados de búsqueda en menos de 2 segundos en el percentil 95 de las consultas bajo carga de 1000 usuarios concurrentes"
 **Por qué es malo:** "Rápido" no es verificable ni específico
 
 ❌ "El sistema validará la entrada del usuario"
-✅ "El sistema shall validar que el campo de correo electrónico contenga exactamente un símbolo @ seguido de un nombre de dominio válido"
+✅ "El sistema deberá validar que el campo de correo electrónico contenga exactamente un símbolo @ seguido de un nombre de dominio válido"
 **Por qué es malo:** No especifica QUÉ validar ni CÓMO
 
 ❌ "Procesar las transacciones eficientemente"
-✅ "El sistema shall procesar hasta 10,000 transacciones por segundo con tiempo de respuesta promedio menor a 500 milisegundos"
+✅ "El sistema deberá procesar hasta 10,000 transacciones por segundo con tiempo de respuesta promedio menor a 500 milisegundos"
 **Por qué es malo:** "Eficientemente" es subjetivo y no medible
 
 **Clave para el examen:** Si el requerimiento usa verbos de acción (enviar, calcular, mostrar, almacenar, generar) y describe un comportamiento observable → es FUNCIONAL
@@ -159,98 +159,98 @@ Subcategorías:
 
 **Ejemplos de Rendimiento:**
 
-✅ "El sistema shall procesar un mínimo de 10,000 transacciones por segundo durante las horas pico (8am-10am y 2pm-4pm)"
+✅ "El sistema deberá procesar un mínimo de 10,000 transacciones por segundo durante las horas pico (8am-10am y 2pm-4pm)"
 
-✅ "El sistema shall retornar resultados de búsqueda en menos de 2 segundos para el 95% de las consultas cuando el sistema opera con 5,000 usuarios concurrentes"
+✅ "El sistema deberá retornar resultados de búsqueda en menos de 2 segundos para el 95% de las consultas cuando el sistema opera con 5,000 usuarios concurrentes"
 - Métrica: < 2 segundos
 - Percentil: 95% (permite 5% más lento)
 - Condición de carga: 5,000 usuarios concurrentes
 
-✅ "El sistema shall iniciar en menos de 30 segundos en hardware estándar definido en especificación técnica sección 3.2"
+✅ "El sistema deberá iniciar en menos de 30 segundos en hardware estándar definido en especificación técnica sección 3.2"
 
-✅ "El sistema shall soportar hasta 50,000 usuarios concurrentes sin degradación de performance mayor al 10%"
+✅ "El sistema deberá soportar hasta 50,000 usuarios concurrentes sin degradación de performance mayor al 10%"
 
 **Ejemplos de Confiabilidad:**
 
-✅ "El sistema shall tener un tiempo promedio entre fallos (MTBF) de al menos 720 horas en operación continua"
+✅ "El sistema deberá tener un tiempo promedio entre fallos (MTBF) de al menos 720 horas en operación continua"
 
-✅ "El sistema shall recuperarse automáticamente de fallos de red en menos de 5 segundos sin pérdida de datos de transacciones en curso"
+✅ "El sistema deberá recuperarse automáticamente de fallos de red en menos de 5 segundos sin pérdida de datos de transacciones en curso"
 
-✅ "La tasa de transacciones fallidas no shall exceder 0.1% del total de transacciones procesadas"
+✅ "La tasa de transacciones fallidas no deberá exceder 0.1% del total de transacciones procesadas"
 
 **Ejemplos de Seguridad:**
 
-✅ "El sistema shall requerir autenticación de dos factores (2FA) para todas las transacciones que excedan $1,000 dólares"
+✅ "El sistema deberá requerir autenticación de dos factores (2FA) para todas las transacciones que excedan $1,000 dólares"
 
-✅ "El sistema shall encriptar todos los datos sensibles en tránsito usando TLS 1.3 o superior y en reposo usando AES-256"
+✅ "El sistema deberá encriptar todos los datos sensibles en tránsito usando TLS 1.3 o superior y en reposo usando AES-256"
 
-✅ "El sistema shall bloquear automáticamente una cuenta después de 3 intentos fallidos de inicio de sesión consecutivos durante un período de 15 minutos"
+✅ "El sistema deberá bloquear automáticamente una cuenta después de 3 intentos fallidos de inicio de sesión consecutivos durante un período de 15 minutos"
 
-✅ "El sistema shall mantener un registro de auditoría inmutable de todas las transacciones financieras durante mínimo 7 años"
+✅ "El sistema deberá mantener un registro de auditoría inmutable de todas las transacciones financieras durante mínimo 7 años"
 
 **Ejemplos de Usabilidad:**
 
-✅ "Un usuario novato sin capacitación previa shall poder completar el proceso de checkout en menos de 5 minutos en el 80% de los intentos"
+✅ "Un usuario novato sin capacitación previa deberá poder completar el proceso de checkout en menos de 5 minutos en el 80% de los intentos"
 - Usuario definido: novato sin capacitación
 - Tarea: proceso checkout
 - Métrica: < 5 minutos
 - Criterio éxito: 80% de los intentos
 
-✅ "El sistema shall proveer mensajes de error en lenguaje natural español mexicano, indicando claramente el problema y sugiriendo la solución en términos no técnicos"
+✅ "El sistema deberá proveer mensajes de error en lenguaje natural español mexicano, indicando claramente el problema y sugiriendo la solución en términos no técnicos"
 
-✅ "Un usuario experto que usa el sistema diariamente shall poder completar las 10 operaciones más comunes usando únicamente atajos de teclado sin usar el mouse"
+✅ "Un usuario experto que usa el sistema diariamente deberá poder completar las 10 operaciones más comunes usando únicamente atajos de teclado sin usar el mouse"
 
 ---
 
 **2. Requerimientos Organizacionales (Políticas y procedimientos)**
 
 **Ejemplos de Proceso de Entrega:**
-✅ "El sistema shall ser entregado en incrementos mensuales comenzando 60 días después de la firma del contrato"
-✅ "Cada entrega shall incluir documentación técnica actualizada y manual de usuario en formato PDF"
+✅ "El sistema deberá ser entregado en incrementos mensuales comenzando 60 días después de la firma del contrato"
+✅ "Cada entrega deberá incluir documentación técnica actualizada y manual de usuario en formato PDF"
 
 **Ejemplos de Estándares:**
-✅ "El código fuente shall seguir el estándar de codificación Java definido por Google Java Style Guide versión 2023"
-✅ "Toda la interfaz de usuario shall cumplir con las pautas de accesibilidad WCAG 2.1 nivel AA"
+✅ "El código fuente deberá seguir el estándar de codificación Java definido por Google Java Style Guide versión 2023"
+✅ "Toda la interfaz de usuario deberá cumplir con las pautas de accesibilidad WCAG 2.1 nivel AA"
 
 **Ejemplos de Proceso de Desarrollo:**
-✅ "El desarrollo shall seguir un proceso ágil Scrum con sprints de 2 semanas"
-✅ "Todas las funcionalidades shall tener cobertura de pruebas unitarias mínima del 80%"
+✅ "El desarrollo deberá seguir un proceso ágil Scrum con sprints de 2 semanas"
+✅ "Todas las funcionalidades deberá tener cobertura de pruebas unitarias mínima del 80%"
 
 ---
 
 **3. Requerimientos Externos (Factores fuera de la organización)**
 
 **Ejemplos Regulatorios:**
-✅ "El sistema shall cumplir con todas las disposiciones del Reglamento General de Protección de Datos (GDPR) de la Unión Europea"
-✅ "El manejo de información de salud shall cumplir con la Ley de Portabilidad y Responsabilidad de Seguros de Salud (HIPAA)"
-✅ "El sistema shall cumplir con el estándar PCI-DSS versión 3.2 o superior para el procesamiento de pagos con tarjeta"
+✅ "El sistema deberá cumplir con todas las disposiciones del Reglamento General de Protección de Datos (GDPR) de la Unión Europea"
+✅ "El manejo de información de salud deberá cumplir con la Ley de Portabilidad y Responsabilidad de Seguros de Salud (HIPAA)"
+✅ "El sistema deberá cumplir con el estándar PCI-DSS versión 3.2 o superior para el procesamiento de pagos con tarjeta"
 
 **Ejemplos Éticos:**
-✅ "El sistema shall proveer opciones de accesibilidad para personas con discapacidades visuales, auditivas y motoras"
-✅ "El sistema no shall discriminar usuarios basándose en edad, género, origen étnico, religión o ubicación geográfica"
+✅ "El sistema deberá proveer opciones de accesibilidad para personas con discapacidades visuales, auditivas y motoras"
+✅ "El sistema no deberá discriminar usuarios basándose en edad, género, origen étnico, religión o ubicación geográfica"
 
 **Ejemplos Legales:**
-✅ "Todos los datos personales de ciudadanos mexicanos shall almacenarse en servidores ubicados físicamente en territorio mexicano"
-✅ "El sistema shall permitir a los usuarios exportar todos sus datos personales en formato legible por máquina (JSON o XML) dentro de 48 horas de la solicitud"
+✅ "Todos los datos personales de ciudadanos mexicanos deberá almacenarse en servidores ubicados físicamente en territorio mexicano"
+✅ "El sistema deberá permitir a los usuarios exportar todos sus datos personales en formato legible por máquina (JSON o XML) dentro de 48 horas de la solicitud"
 
 ---
 
 **Ejemplos Malos de NFR (y cómo corregirlos):**
 
 ❌ "El sistema debe ser rápido"
-✅ "El sistema shall responder a solicitudes de búsqueda en menos de 2 segundos en el percentil 95 bajo carga de 1000 usuarios concurrentes"
+✅ "El sistema deberá responder a solicitudes de búsqueda en menos de 2 segundos en el percentil 95 bajo carga de 1000 usuarios concurrentes"
 **Razón:** "Rápido" no es medible
 
 ❌ "El sistema debe ser seguro"
-✅ "El sistema shall implementar autenticación de dos factores (2FA) para todos los usuarios y encriptar datos en tránsito con TLS 1.3 y en reposo con AES-256"
+✅ "El sistema deberá implementar autenticación de dos factores (2FA) para todos los usuarios y encriptar datos en tránsito con TLS 1.3 y en reposo con AES-256"
 **Razón:** "Seguro" es vago
 
 ❌ "El sistema debe ser fácil de usar"
-✅ "Usuario novato shall completar la tarea de registro de cuenta en menos de 3 minutos sin necesidad de soporte técnico en el 90% de los casos"
+✅ "Usuario novato deberá completar la tarea de registro de cuenta en menos de 3 minutos sin necesidad de soporte técnico en el 90% de los casos"
 **Razón:** "Fácil" es subjetivo
 
 ❌ "El sistema debe ser confiable"
-✅ "El sistema shall tener disponibilidad del 99.9% (máximo 8.7 horas de tiempo inactivo por año) y MTBF de 720 horas"
+✅ "El sistema deberá tener disponibilidad del 99.9% (máximo 8.7 horas de tiempo inactivo por año) y MTBF de 720 horas"
 **Razón:** "Confiable" no especifica métrica
 
 **Clave para el examen:** Si el requerimiento usa adjetivos de calidad (rápido, seguro, confiable, fácil) y describe CÓMO debe comportarse el sistema → es NO FUNCIONAL
@@ -264,28 +264,28 @@ Subcategorías:
 **Tipos de Restricciones:**
 
 **1. Restricciones Tecnológicas:**
-✅ "El sistema shall ejecutarse en el sistema operativo Oracle Linux 8.x"
-✅ "El sistema shall usar exclusivamente el gestor de base de datos Oracle Database 19c Enterprise Edition"
-✅ "La interfaz de usuario shall desarrollarse usando el framework Angular versión 15 o superior"
-✅ "El sistema shall ser accesible mediante navegadores Chrome 100+, Firefox 95+, Safari 15+, Edge 100+"
+✅ "El sistema deberá ejecutarse en el sistema operativo Oracle Linux 8.x"
+✅ "El sistema deberá usar exclusivamente el gestor de base de datos Oracle Database 19c Enterprise Edition"
+✅ "La interfaz de usuario deberá desarrollarse usando el framework Angular versión 15 o superior"
+✅ "El sistema deberá ser accesible mediante navegadores Chrome 100+, Firefox 95+, Safari 15+, Edge 100+"
 
 **2. Restricciones de Plataforma:**
-✅ "El sistema shall desplegarse en la infraestructura de Amazon Web Services (AWS) en la región us-east-1"
-✅ "Toda la infraestructura shall ejecutarse en contenedores Docker orquestados con Kubernetes versión 1.25+"
-✅ "El sistema móvil shall soportar iOS 15+ y Android 11+ como versiones mínimas"
+✅ "El sistema deberá desplegarse en la infraestructura de Amazon Web Services (AWS) en la región us-east-1"
+✅ "Toda la infraestructura deberá ejecutarse en contenedores Docker orquestados con Kubernetes versión 1.25+"
+✅ "El sistema móvil deberá soportar iOS 15+ y Android 11+ como versiones mínimas"
 
 **3. Restricciones de Lenguaje:**
-✅ "El backend shall desarrollarse usando Java 17 LTS"
-✅ "Todos los scripts de automatización shall escribirse en Python 3.10 o superior"
-✅ "Las consultas a base de datos shall escribirse en SQL estándar ANSI-92 sin extensiones propietarias"
+✅ "El backend deberá desarrollarse usando Java 17 LTS"
+✅ "Todos los scripts de automatización deberá escribirse en Python 3.10 o superior"
+✅ "Las consultas a base de datos deberá escribirse en SQL estándar ANSI-92 sin extensiones propietarias"
 
 **4. Restricciones de Tamaño:**
-✅ "La aplicación móvil instalada shall ocupar menos de 50 MB de espacio de almacenamiento"
-✅ "La base de datos shall diseñarse para almacenar mínimo 10 millones de registros de clientes sin degradación de rendimiento"
+✅ "La aplicación móvil instalada deberá ocupar menos de 50 MB de espacio de almacenamiento"
+✅ "La base de datos deberá diseñarse para almacenar mínimo 10 millones de registros de clientes sin degradación de rendimiento"
 
 **5. Restricciones de Integración:**
-✅ "El sistema shall integrarse con el sistema ERP SAP existente usando APIs SOAP definidas en documento de integración versión 2.3"
-✅ "El sistema shall consumir servicios del API REST corporativo definido en especificación OpenAPI 3.0"
+✅ "El sistema deberá integrarse con el sistema ERP SAP existente usando APIs SOAP definidas en documento de integración versión 2.3"
+✅ "El sistema deberá consumir servicios del API REST corporativo definido en especificación OpenAPI 3.0"
 
 **Ejemplos Malos:**
 ❌ "Usar buenas prácticas de programación" (esto es expectativa general, no restricción)
@@ -355,7 +355,7 @@ Definen qué NO está permitido
 "Cliente VIP obtiene 15% de descuento en todas sus compras"
 
 **Requerimiento Funcional derivado (lo que el sistema hace):**
-"El sistema shall aplicar automáticamente un descuento del 15% al total de la compra cuando el cliente autenticado tiene estado VIP"
+"El sistema deberá aplicar automáticamente un descuento del 15% al total de la compra cuando el cliente autenticado tiene estado VIP"
 
 **Otro ejemplo:**
 
@@ -363,7 +363,7 @@ Definen qué NO está permitido
 "Los pedidos recibidos antes de las 2:00 PM se envían el mismo día"
 
 **Requerimiento Funcional derivado:**
-"El sistema shall marcar como 'Envío Mismo Día' todos los pedidos confirmados antes de las 14:00 horas y generar la orden de envío automáticamente"
+"El sistema deberá marcar como 'Envío Mismo Día' todos los pedidos confirmados antes de las 14:00 horas y generar la orden de envío automáticamente"
 
 **Clave para el examen:** Si describe una política del NEGOCIO (cómo opera la empresa) en lugar de lo que el SISTEMA debe hacer → es REGLA DE NEGOCIO
 
@@ -374,16 +374,16 @@ Definen qué NO está permitido
 **Analogía del Viaje:**
 - **Negocio:** "Necesito llegar a Guadalajara para una reunión importante mañana" (objetivo del negocio)
 - **Usuario:** "Como viajero, quiero reservar un vuelo directo y un hotel cerca del lugar de reunión" (necesidad del usuario)
-- **Sistema - Funcional:** "El sistema shall mostrar vuelos disponibles, permitir selección de asiento, procesar pago con tarjeta, y enviar confirmación por email" (funciones específicas)
-- **Sistema - NFR:** "El sistema shall procesar la reservación en menos de 30 segundos" (atributo de calidad)
+- **Sistema - Funcional:** "El sistema deberá mostrar vuelos disponibles, permitir selección de asiento, procesar pago con tarjeta, y enviar confirmación por email" (funciones específicas)
+- **Sistema - NFR:** "El sistema deberá procesar la reservación en menos de 30 segundos" (atributo de calidad)
 - **Restricción:** "El sistema debe usar la API de Amadeus para búsqueda de vuelos" (limitación técnica)
 - **Regla Negocio:** "Pasajeros frecuentes con más de 50,000 km acumulados obtienen upgrade gratuito" (política aerolínea)
 
 **Analogía del Restaurante:**
 - **Negocio:** "Incrementar ventas 30% en 6 meses" (objetivo del dueño)
 - **Usuario:** "Como cliente, quiero ordenar comida desde mi teléfono y recibirla en mi mesa" (necesidad cliente)
-- **Sistema - Funcional:** "El sistema shall permitir seleccionar platillos del menú, personalizar ingredientes, procesar pago, y enviar orden a cocina" (funciones app)
-- **Sistema - NFR:** "El sistema shall responder en < 1 segundo al hacer clic en cualquier platillo" (rapidez)
+- **Sistema - Funcional:** "El sistema deberá permitir seleccionar platillos del menú, personalizar ingredientes, procesar pago, y enviar orden a cocina" (funciones app)
+- **Sistema - NFR:** "El sistema deberá responder en < 1 segundo al hacer clic en cualquier platillo" (rapidez)
 - **Restricción:** "El sistema debe integrarse con el sistema de punto de venta existente Square" (tecnología obligatoria)
 - **Regla Negocio:** "Clientes que gastan más de $500 al mes obtienen postre gratis" (política restaurante)
 
@@ -395,7 +395,7 @@ Definen qué NO está permitido
 |------|----------------------|---------|-----------|---------|
 | **Negocio** | ¿Por qué hacemos esto? | "Reducir costos 40% en 12 meses" | Ejecutivos, inversionistas | Documento de visión |
 | **Usuario** | ¿Qué quiere lograr el usuario? | "Como cajero, procesar devolución en 3 clics" | Usuarios, clientes | Historia de usuario, caso de uso |
-| **Sistema - Funcional** | ¿Qué hace exactamente el sistema? | "Sistema shall enviar email en ≤30 seg" | Desarrolladores, testers | SRS con "shall" |
+| **Sistema - Funcional** | ¿Qué hace exactamente el sistema? | "Sistema deberá enviar email en ≤30 seg" | Desarrolladores, testers | SRS con "deberá" |
 | **Sistema - NFR** | ¿Cómo debe comportarse? | "Tiempo respuesta ≤2 seg percentil 95" | Arquitectos, Ops | SRS con métricas |
 | **Restricción** | ¿Qué limitaciones tiene? | "Debe usar Oracle 19c" | Arquitectos, admins | Documento restricciones |
 | **Regla Negocio** | ¿Qué políticas del negocio aplican? | "VIP = compras >$5K últimos 12 meses" | Analistas negocio | Manual de políticas |
@@ -457,26 +457,26 @@ Tiempos de respuesta, latencia, throughput
   - Ejemplo: "Latencia de red <100 milisegundos entre usuario y servidor"
 
 **Ejemplos Completos:**
-✅ "El sistema shall procesar un mínimo de 15,000 transacciones por segundo durante operación normal"
-✅ "El sistema shall retornar resultados de búsqueda de productos en menos de 1.5 segundos para el 99% de las consultas cuando operan 10,000 usuarios concurrentes"
-✅ "La aplicación móvil shall cargar la pantalla principal en menos de 3 segundos en conexión 4G con latencia típica de 50ms"
+✅ "El sistema deberá procesar un mínimo de 15,000 transacciones por segundo durante operación normal"
+✅ "El sistema deberá retornar resultados de búsqueda de productos en menos de 1.5 segundos para el 99% de las consultas cuando operan 10,000 usuarios concurrentes"
+✅ "La aplicación móvil deberá cargar la pantalla principal en menos de 3 segundos en conexión 4G con latencia típica de 50ms"
 
 **b) Utilización de Recursos (Resource Utilization)**
 CPU, memoria, disco, red
 
 **Métricas:**
-✅ "Uso de CPU shall permanecer por debajo del 70% durante operación normal con 5,000 usuarios"
-✅ "Consumo de memoria RAM shall no exceder 4 GB por instancia del servidor de aplicaciones"
-✅ "Consumo de batería en dispositivo móvil shall ser menor a 5% por hora de uso activo de la aplicación"
-✅ "Ancho de banda consumido shall no exceder 100 MB por hora por usuario en streaming de calidad estándar"
+✅ "Uso de CPU deberá permanecer por debajo del 70% durante operación normal con 5,000 usuarios"
+✅ "Consumo de memoria RAM deberá no exceder 4 GB por instancia del servidor de aplicaciones"
+✅ "Consumo de batería en dispositivo móvil deberá ser menor a 5% por hora de uso activo de la aplicación"
+✅ "Ancho de banda consumido deberá no exceder 100 MB por hora por usuario en streaming de calidad estándar"
 
 **c) Capacidad (Capacity)**
 Límites máximos soportados
 
 **Ejemplos:**
-✅ "El sistema shall soportar hasta 50,000 usuarios concurrentes sin degradación de rendimiento mayor al 10%"
-✅ "La base de datos shall almacenar mínimo 100 millones de registros de transacciones manteniendo tiempo de consulta <2 segundos"
-✅ "El sistema shall procesar archivos de importación de hasta 10 GB sin requerir división manual"
+✅ "El sistema deberá soportar hasta 50,000 usuarios concurrentes sin degradación de rendimiento mayor al 10%"
+✅ "La base de datos deberá almacenar mínimo 100 millones de registros de transacciones manteniendo tiempo de consulta <2 segundos"
+✅ "El sistema deberá procesar archivos de importación de hasta 10 GB sin requerir división manual"
 
 **Analogía:** 
 Performance = Autopista
@@ -497,15 +497,15 @@ Performance = Autopista
 **a) Coexistencia:** Realizar funciones eficientemente compartiendo recursos con otros productos sin impacto adverso
 
 **Ejemplos:**
-✅ "El sistema shall operar en el mismo servidor que el sistema ERP existente sin conflictos de puertos o librerías compartidas"
-✅ "La aplicación shall coexistir con antivirus corporativo Norton 360 sin generar falsas alarmas ni consumir >10% CPU adicional"
+✅ "El sistema deberá operar en el mismo servidor que el sistema ERP existente sin conflictos de puertos o librerías compartidas"
+✅ "La aplicación deberá coexistir con antivirus corporativo Norton 360 sin generar falsas alarmas ni consumir >10% CPU adicional"
 
 **b) Interoperabilidad:** Intercambiar información y usar información intercambiada
 
 **Ejemplos:**
-✅ "El sistema shall intercambiar datos de clientes con sistema CRM Salesforce usando API REST estándar con formato JSON"
-✅ "El sistema shall importar archivos CSV con codificación UTF-8, ISO-8859-1 y ASCII"
-✅ "El sistema shall exportar reportes en formatos PDF, Excel (.xlsx) y CSV"
+✅ "El sistema deberá intercambiar datos de clientes con sistema CRM Salesforce usando API REST estándar con formato JSON"
+✅ "El sistema deberá importar archivos CSV con codificación UTF-8, ISO-8859-1 y ASCII"
+✅ "El sistema deberá exportar reportes en formatos PDF, Excel (.xlsx) y CSV"
 
 ---
 
@@ -519,54 +519,54 @@ Performance = Autopista
 ¿El usuario puede reconocer si el producto es apropiado para sus necesidades?
 
 **Ejemplo:**
-✅ "La pantalla de inicio shall mostrar claramente las 5 funciones principales que representan el 80% de casos de uso"
-✅ "El sistema shall proveer un tour guiado de 2 minutos en el primer inicio que muestre capacidades principales"
+✅ "La pantalla de inicio deberá mostrar claramente las 5 funciones principales que representan el 80% de casos de uso"
+✅ "El sistema deberá proveer un tour guiado de 2 minutos en el primer inicio que muestre capacidades principales"
 
 **b) Capacidad de Aprendizaje (Learnability)**
 ¿Qué tan fácil es aprender a usar el sistema?
 
 **Métricas y Ejemplos:**
-✅ "Un usuario novato sin capacitación previa shall poder completar su primera tarea de registro de paciente en menos de 8 minutos siguiendo las ayudas contextuales"
-✅ "El 80% de usuarios nuevos shall poder realizar las 5 operaciones más comunes sin consultar el manual después de 1 hora de uso"
-✅ "El sistema shall proveer tooltips contextuales en todos los campos de formulario explicando qué información ingresar"
+✅ "Un usuario novato sin capacitación previa deberá poder completar su primera tarea de registro de paciente en menos de 8 minutos siguiendo las ayudas contextuales"
+✅ "El 80% de usuarios nuevos deberá poder realizar las 5 operaciones más comunes sin consultar el manual después de 1 hora de uso"
+✅ "El sistema deberá proveer tooltips contextuales en todos los campos de formulario explicando qué información ingresar"
 
 **c) Operabilidad (Operability)**
 ¿Qué tan fácil es operar y controlar el sistema?
 
 **Ejemplos:**
-✅ "Todas las operaciones críticas shall requerir máximo 3 clics desde la pantalla principal"
-✅ "El sistema shall permitir deshacer (undo) las últimas 10 acciones del usuario"
-✅ "Los usuarios expertos shall poder realizar todas las operaciones usando únicamente teclado sin necesidad de mouse"
+✅ "Todas las operaciones críticas deberá requerir máximo 3 clics desde la pantalla principal"
+✅ "El sistema deberá permitir deshacer (undo) las últimas 10 acciones del usuario"
+✅ "Los usuarios expertos deberá poder realizar todas las operaciones usando únicamente teclado sin necesidad de mouse"
 
 **d) Protección contra Errores de Usuario (User Error Protection)**
 ¿El sistema previene que usuarios cometan errores?
 
 **Ejemplos:**
-✅ "El sistema shall deshabilitar el botón 'Guardar' hasta que todos los campos obligatorios estén completados correctamente"
-✅ "El sistema shall solicitar confirmación explícita antes de eliminar registros permanentemente con mensaje: '¿Está seguro que desea eliminar 15 registros? Esta acción no se puede deshacer'"
-✅ "Al intentar cerrar formulario con cambios no guardados, el sistema shall mostrar advertencia: 'Tiene cambios sin guardar. ¿Desea guardar, descartar cambios, o continuar editando?'"
+✅ "El sistema deberá deshabilitar el botón 'Guardar' hasta que todos los campos obligatorios estén completados correctamente"
+✅ "El sistema deberá solicitar confirmación explícita antes de eliminar registros permanentemente con mensaje: '¿Está seguro que desea eliminar 15 registros? Esta acción no se puede deshacer'"
+✅ "Al intentar cerrar formulario con cambios no guardados, el sistema deberá mostrar advertencia: 'Tiene cambios sin guardar. ¿Desea guardar, descartar cambios, o continuar editando?'"
 
 **e) Estética de Interfaz de Usuario (User Interface Aesthetics)**
 ¿La interfaz es agradable y satisfactoria?
 
 **Ejemplos:**
-✅ "La interfaz shall seguir los principios de Material Design 3 de Google para consistencia visual"
-✅ "El sistema shall usar una paleta de colores corporativos con contraste mínimo 4.5:1 según WCAG 2.1"
-✅ "Los iconos shall ser reconocibles sin texto complementario y seguir el conjunto de iconos Material Symbols"
+✅ "La interfaz deberá seguir los principios de Material Design 3 de Google para consistencia visual"
+✅ "El sistema deberá usar una paleta de colores corporativos con contraste mínimo 4.5:1 según WCAG 2.1"
+✅ "Los iconos deberá ser reconocibles sin texto complementario y seguir el conjunto de iconos Material Symbols"
 
 **f) Accesibilidad (Accessibility)**
 ¿Personas con diversas capacidades pueden usar el sistema?
 
 **Ejemplos:**
-✅ "El sistema shall cumplir con las Pautas de Accesibilidad para Contenido Web (WCAG) 2.1 nivel AA"
-✅ "Todas las imágenes shall incluir texto alternativo (alt text) descriptivo para lectores de pantalla"
-✅ "El sistema shall ser completamente navegable usando solo teclado con indicadores visuales del foco actual"
-✅ "El sistema shall soportar zoom de hasta 200% sin pérdida de funcionalidad o información"
+✅ "El sistema deberá cumplir con las Pautas de Accesibilidad para Contenido Web (WCAG) 2.1 nivel AA"
+✅ "Todas las imágenes deberá incluir texto alternativo (alt text) descriptivo para lectores de pantalla"
+✅ "El sistema deberá ser completamente navegable usando solo teclado con indicadores visuales del foco actual"
+✅ "El sistema deberá soportar zoom de hasta 200% sin pérdida de funcionalidad o información"
 
 **Ejemplos Completos con Medición:**
 
 ✅ **Ejemplo 1 - Sistema de Punto de Venta:**
-"Un cajero nuevo con experiencia básica en computación shall poder procesar su primera venta completa (escaneo productos, aplicar descuento, procesar pago, imprimir recibo) en menos de 5 minutos después de recibir 30 minutos de capacitación"
+"Un cajero nuevo con experiencia básica en computación deberá poder procesar su primera venta completa (escaneo productos, aplicar descuento, procesar pago, imprimir recibo) en menos de 5 minutos después de recibir 30 minutos de capacitación"
 
 Desglose:
 - Usuario: cajero nuevo con experiencia básica
@@ -576,10 +576,10 @@ Desglose:
 - Métrica: tiempo de completar tarea
 
 ✅ **Ejemplo 2 - Aplicación Médica:**
-"Un médico ocupado shall poder registrar los datos de una consulta médica completa (síntomas, diagnóstico, prescripción) en menos de 3 minutos usando la aplicación móvil"
+"Un médico ocupado deberá poder registrar los datos de una consulta médica completa (síntomas, diagnóstico, prescripción) en menos de 3 minutos usando la aplicación móvil"
 
 ✅ **Ejemplo 3 - Sistema Bancario:**
-"El 90% de clientes mayores de 65 años shall poder transferir dinero entre cuentas propias sin asistencia de personal en su segundo intento"
+"El 90% de clientes mayores de 65 años deberá poder transferir dinero entre cuentas propias sin asistencia de personal en su segundo intento"
 
 **Analogía Usabilidad:**
 Usabilidad = Conducir un auto
@@ -605,9 +605,9 @@ Usabilidad = Conducir un auto
 - **Tasa de Fallos:** Número de fallos por unidad de tiempo
 
 **Ejemplos:**
-✅ "El sistema shall tener un MTBF de al menos 720 horas (30 días) de operación continua"
-✅ "La tasa de fallos del sistema shall ser menor a 0.1% de todas las transacciones procesadas"
-✅ "El sistema shall operar sin requerir reinicio durante al menos 90 días continuos"
+✅ "El sistema deberá tener un MTBF de al menos 720 horas (30 días) de operación continua"
+✅ "La tasa de fallos del sistema deberá ser menor a 0.1% de todas las transacciones procesadas"
+✅ "El sistema deberá operar sin requerir reinicio durante al menos 90 días continuos"
 
 **b) Disponibilidad (Availability)**
 ¿El sistema está operacional y accesible cuando se requiere usar?
@@ -629,17 +629,17 @@ Disponibilidad = Tiempo Operacional / (Tiempo Operacional + Tiempo Inactivo) × 
 | 99.9999% | Seis nueves | 31.5 segundos | 2.6 segundos | Sistemas médicos críticos |
 
 **Ejemplos:**
-✅ "El sistema shall mantener disponibilidad del 99.9% medida mensualmente (máximo 43.2 minutos de tiempo inactivo por mes)"
-✅ "El sistema de respaldo shall activarse automáticamente en menos de 30 segundos cuando el sistema principal falla"
-✅ "El mantenimiento programado shall realizarse únicamente los domingos de 2am a 6am y no shall exceder 4 horas mensuales"
+✅ "El sistema deberá mantener disponibilidad del 99.9% medida mensualmente (máximo 43.2 minutos de tiempo inactivo por mes)"
+✅ "El sistema de respaldo deberá activarse automáticamente en menos de 30 segundos cuando el sistema principal falla"
+✅ "El mantenimiento programado deberá realizarse únicamente los domingos de 2am a 6am y no deberá exceder 4 horas mensuales"
 
 **c) Tolerancia a Fallos (Fault Tolerance)**
 ¿El sistema opera como se espera a pesar de fallas de hardware o software?
 
 **Ejemplos:**
-✅ "El sistema shall continuar procesando transacciones aunque falle 1 de los 3 servidores del cluster"
-✅ "Si la conexión a base de datos falla, el sistema shall guardar transacciones localmente y sincronizar automáticamente cuando la conexión se restablezca"
-✅ "El sistema shall detectar y recuperarse automáticamente de deadlocks en base de datos en menos de 5 segundos"
+✅ "El sistema deberá continuar procesando transacciones aunque falle 1 de los 3 servidores del cluster"
+✅ "Si la conexión a base de datos falla, el sistema deberá guardar transacciones localmente y sincronizar automáticamente cuando la conexión se restablezca"
+✅ "El sistema deberá detectar y recuperarse automáticamente de deadlocks en base de datos en menos de 5 segundos"
 
 **d) Capacidad de Recuperación (Recoverability)**
 ¿El sistema puede recuperar datos afectados y reestablecer estado deseado tras interrupción o fallo?
@@ -649,10 +649,10 @@ Disponibilidad = Tiempo Operacional / (Tiempo Operacional + Tiempo Inactivo) × 
 - **RPO (Recovery Point Objective / Objetivo de Punto de Recuperación):** Pérdida de datos máxima aceptable
 
 **Ejemplos:**
-✅ "El sistema shall realizar respaldo incremental automático cada 4 horas con RPO máximo de 4 horas"
-✅ "En caso de fallo catastrófico, el sistema shall poder restaurarse completamente desde respaldo en menos de 2 horas (RTO = 2 horas)"
-✅ "El sistema shall mantener copias de respaldo en ubicación geográfica separada al menos 100 km del sitio principal"
-✅ "Todas las transacciones financieras shall ser recuperables sin pérdida de datos (RPO = 0 minutos)"
+✅ "El sistema deberá realizar respaldo incremental automático cada 4 horas con RPO máximo de 4 horas"
+✅ "En caso de fallo catastrófico, el sistema deberá poder restaurarse completamente desde respaldo en menos de 2 horas (RTO = 2 horas)"
+✅ "El sistema deberá mantener copias de respaldo en ubicación geográfica separada al menos 100 km del sitio principal"
+✅ "Todas las transacciones financieras deberá ser recuperables sin pérdida de datos (RPO = 0 minutos)"
 
 **Diferencia CLAVE (sale en examen):**
 - **Disponibilidad:** Estar "arriba" y accesible (sistema responde)
@@ -684,10 +684,10 @@ Información accesible solo para quienes están autorizados
 - Control de acceso (limitar quién ve qué)
 
 **Ejemplos:**
-✅ "El sistema shall encriptar todos los datos de tarjetas de crédito usando AES-256 antes de almacenarlos"
-✅ "Las credenciales de usuario shall transmitirse únicamente mediante conexiones HTTPS con TLS 1.3 o superior"
-✅ "Los datos personales sensibles (CURP, RFC) shall mostrarse enmascarados mostrando solo últimos 4 dígitos excepto para usuarios con rol Admin"
-✅ "El sistema shall implementar cifrado de extremo a extremo (E2EE) para mensajes entre usuarios"
+✅ "El sistema deberá encriptar todos los datos de tarjetas de crédito usando AES-256 antes de almacenarlos"
+✅ "Las credenciales de usuario deberá transmitirse únicamente mediante conexiones HTTPS con TLS 1.3 o superior"
+✅ "Los datos personales sensibles (CURP, RFC) deberá mostrarse enmascarados mostrando solo últimos 4 dígitos excepto para usuarios con rol Admin"
+✅ "El sistema deberá implementar cifrado de extremo a extremo (E2EE) para mensajes entre usuarios"
 
 **b) INTEGRIDAD (Integrity)**
 Información no ha sido alterada de manera no autorizada
@@ -699,10 +699,10 @@ Información no ha sido alterada de manera no autorizada
 - Auditoría
 
 **Ejemplos:**
-✅ "Cada transacción financiera shall incluir un hash SHA-256 que permita verificar que no ha sido alterada"
-✅ "El sistema shall registrar en bitácora inmutable cualquier modificación a registros de auditoría indicando quién, qué, cuándo y desde dónde"
-✅ "Los archivos descargados shall incluir checksum MD5 para verificar integridad de descarga"
-✅ "Cambios a datos críticos shall requerir aprobación de 2 usuarios con roles diferentes (segregación de funciones)"
+✅ "Cada transacción financiera deberá incluir un hash SHA-256 que permita verificar que no ha sido alterada"
+✅ "El sistema deberá registrar en bitácora inmutable cualquier modificación a registros de auditoría indicando quién, qué, cuándo y desde dónde"
+✅ "Los archivos descargados deberá incluir checksum MD5 para verificar integridad de descarga"
+✅ "Cambios a datos críticos deberá requerir aprobación de 2 usuarios con roles diferentes (segregación de funciones)"
 
 **c) DISPONIBILIDAD (Availability)**
 Información accesible y usable cuando se requiere
@@ -714,9 +714,9 @@ Información accesible y usable cuando se requiere
 - Plan recuperación desastres
 
 **Ejemplos:**
-✅ "El sistema shall implementar protección contra ataques DDoS que mitigue ataques de hasta 10 Gbps"
-✅ "El sistema shall limitar a 100 solicitudes por minuto por dirección IP para prevenir abuso"
-✅ "Los respaldos shall almacenarse en 3 ubicaciones geográficas diferentes"
+✅ "El sistema deberá implementar protección contra ataques DDoS que mitigue ataques de hasta 10 Gbps"
+✅ "El sistema deberá limitar a 100 solicitudes por minuto por dirección IP para prevenir abuso"
+✅ "Los respaldos deberá almacenarse en 3 ubicaciones geográficas diferentes"
 
 **Otras Subcaracterísticas de Seguridad:**
 
@@ -724,26 +724,26 @@ Información accesible y usable cuando se requiere
 Verificar identidad de usuarios
 
 **Ejemplos:**
-✅ "El sistema shall requerir autenticación de dos factores (2FA) usando: contraseña + código SMS de 6 dígitos con validez de 5 minutos"
-✅ "Las contraseñas shall cumplir: mínimo 12 caracteres, incluir mayúsculas, minúsculas, números y símbolos especiales"
-✅ "El sistema shall bloquear cuenta después de 3 intentos fallidos de inicio de sesión consecutivos durante 15 minutos"
-✅ "Las sesiones de usuario shall expirar automáticamente después de 30 minutos de inactividad"
+✅ "El sistema deberá requerir autenticación de dos factores (2FA) usando: contraseña + código SMS de 6 dígitos con validez de 5 minutos"
+✅ "Las contraseñas deberá cumplir: mínimo 12 caracteres, incluir mayúsculas, minúsculas, números y símbolos especiales"
+✅ "El sistema deberá bloquear cuenta después de 3 intentos fallidos de inicio de sesión consecutivos durante 15 minutos"
+✅ "Las sesiones de usuario deberá expirar automáticamente después de 30 minutos de inactividad"
 
 **e) Autorización (Authorization)**
 Controlar qué puede hacer cada usuario
 
 **Ejemplos:**
-✅ "El sistema shall implementar control de acceso basado en roles (RBAC) con mínimo 5 roles: Admin, Gerente, Empleado, Cliente, Auditor"
-✅ "Usuarios con rol 'Empleado' shall poder ver únicamente registros de su departamento"
-✅ "Las operaciones de eliminación de datos shall estar restringidas únicamente a usuarios con rol 'Admin' con segundo factor de autenticación"
+✅ "El sistema deberá implementar control de acceso basado en roles (RBAC) con mínimo 5 roles: Admin, Gerente, Empleado, Cliente, Auditor"
+✅ "Usuarios con rol 'Empleado' deberá poder ver únicamente registros de su departamento"
+✅ "Las operaciones de eliminación de datos deberá estar restringidas únicamente a usuarios con rol 'Admin' con segundo factor de autenticación"
 
 **f) No Repudio (Non-repudiation)**
 Imposibilidad de negar acciones realizadas
 
 **Ejemplos:**
-✅ "Todas las transacciones financieras shall firmarse digitalmente con certificado del usuario que la realizó"
-✅ "El sistema shall mantener log inmutable de todas las acciones con timestamp, IP origen, usuario, y acción realizada"
-✅ "Los correos enviados desde el sistema shall incluir firma digital DKIM para prevenir suplantación"
+✅ "Todas las transacciones financieras deberá firmarse digitalmente con certificado del usuario que la realizó"
+✅ "El sistema deberá mantener log inmutable de todas las acciones con timestamp, IP origen, usuario, y acción realizada"
+✅ "Los correos enviados desde el sistema deberá incluir firma digital DKIM para prevenir suplantación"
 
 **Analogía Seguridad:**
 CIA Triad = Caja fuerte en banco
@@ -765,9 +765,9 @@ CIA Triad = Caja fuerte en banco
 - **Capacidad de Prueba:** Fácil establecer criterios de prueba y ejecutarlas
 
 **Ejemplos:**
-✅ "Agregar nueva forma de pago shall requerir máximo 40 horas de desarrollo de 2 desarrolladores"
-✅ "El sistema shall usar inyección de dependencias para facilitar cambio de implementaciones"
-✅ "Cobertura de código por pruebas unitarias shall ser mínimo 80% para módulos críticos"
+✅ "Agregar nueva forma de pago deberá requerir máximo 40 horas de desarrollo de 2 desarrolladores"
+✅ "El sistema deberá usar inyección de dependencias para facilitar cambio de implementaciones"
+✅ "Cobertura de código por pruebas unitarias deberá ser mínimo 80% para módulos críticos"
 
 ---
 
@@ -781,9 +781,9 @@ CIA Triad = Caja fuerte en banco
 - **Reemplazabilidad:** Puede reemplazar otro sistema para el mismo propósito
 
 **Ejemplos:**
-✅ "El sistema shall ejecutarse sin modificación en Windows Server 2019+, Ubuntu 20.04+, Red Hat 8+"
-✅ "Instalación shall completarse en menos de 15 minutos siguiendo 5 pasos documentados"
-✅ "El sistema shall importar datos del sistema legacy en formato CSV conservando integridad referencial"
+✅ "El sistema deberá ejecutarse sin modificación en Windows Server 2019+, Ubuntu 20.04+, Red Hat 8+"
+✅ "Instalación deberá completarse en menos de 15 minutos siguiendo 5 pasos documentados"
+✅ "El sistema deberá importar datos del sistema legacy en formato CSV conservando integridad referencial"
 
 ---
 
