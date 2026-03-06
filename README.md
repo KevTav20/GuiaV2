@@ -871,7 +871,6 @@ CIA Triad = Caja fuerte en banco
 **Total Área 1:** 755 líneas de contenido técnico denso
 **Equivalente:** ~40 páginas de material exhaustivo
 **Nivel de detalle:** Definiciones extendidas + Múltiples ejemplos + Analogías + Tablas comparativas
-**Idioma:** 100% Español técnico
 
 ---
 
@@ -5261,7 +5260,6 @@ for (Item item : collection) {
 # ÁREA 3: DESARROLLO DE SISTEMAS DE SOFTWARE (39 reactivos)
 
 ## SÍNTESIS EXTENDIDA EGEL ISOFT 2026 - ÁREA 3
-### Definiciones Ampliadas - Ejemplos Detallados - 100% Español
 
 ---
 
@@ -6634,7 +6632,6 @@ def suma(a, b):
 **Total Área 3:** ~1,100 líneas
 **Equivalente:** ~55 páginas de contenido técnico denso
 **Nivel de detalle:** Definiciones extendidas + Código funcional + Tablas comparativas
-**Idioma:** 100% Español
 
 ---
 
@@ -6643,9 +6640,6 @@ def suma(a, b):
 **Objetivo:** Calificación 10 - Sobresaliente en 39 reactivos de Desarrollo
 
 # ÁREA 4: GESTIÓN DE PROYECTOS DE SOFTWARE (40 reactivos)
-
-## SÍNTESIS EXTENDIDA EGEL ISOFT 2026 - ÁREA 4
-### Definiciones Ampliadas - Ejemplos Detallados - 100% Español
 
 ---
 
