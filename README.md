@@ -1,5 +1,4 @@
 # SÍNTESIS EXTENDIDA EGEL ISOFT 2026 - CALIFICACIÓN 10 SOBRESALIENTE
-## Las 4 Áreas Completas en Español - Definiciones Ampliadas - Ejemplos Detallados
 
 ---
 
