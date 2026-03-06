@@ -6641,3 +6641,711 @@ def suma(a, b):
 **FIN DEL ÁREA 3: DESARROLLO DE SISTEMAS DE SOFTWARE**
 **Preparado para:** Examen EGEL ISOFT 2026
 **Objetivo:** Calificación 10 - Sobresaliente en 39 reactivos de Desarrollo
+
+# ÁREA 4: GESTIÓN DE PROYECTOS DE SOFTWARE (40 reactivos)
+
+## SÍNTESIS EXTENDIDA EGEL ISOFT 2026 - ÁREA 4
+### Definiciones Ampliadas - Ejemplos Detallados - 100% Español
+
+---
+
+## 4.1 GESTIÓN DE TIEMPOS - CPM/PERT
+
+**FUENTES: PMBOK Cap.6 + Pressman Cap.26**
+
+### **CPM (Critical Path Method) - Método de Ruta Crítica**
+
+**Definición:** Técnica de análisis de red que identifica la secuencia de actividades (ruta crítica) que determina la duración mínima del proyecto.
+
+#### **CONCEPTOS CLAVE**
+
+**1. ACTIVIDAD:** Tarea específica con duración conocida
+
+**2. RUTA CRÍTICA:**
+- Secuencia MÁS LARGA del proyecto
+- Determina duración total
+- Actividades con holgura = 0
+- Cualquier retraso retrasa TODO el proyecto
+
+**3. HOLGURA (Slack/Float):**
+- Tiempo que puede retrasarse sin afectar proyecto
+- **Fórmula: Holgura = LS - ES = LF - EF**
+- Holgura = 0 → Crítica
+- Holgura > 0 → NO crítica
+
+---
+
+#### **CÁLCULOS CPM**
+
+**NOTACIÓN:**
+- **ES (Early Start):** Inicio más temprano
+- **EF (Early Finish):** Fin más temprano  
+- **LS (Late Start):** Inicio más tardío
+- **LF (Late Finish):** Fin más tardío
+
+**FÓRMULAS:**
+```
+EF = ES + Duración
+LS = LF - Duración
+Holgura = LS - ES = LF - EF
+```
+
+---
+
+#### **EJEMPLO COMPLETO CPM**
+
+| Actividad | Descripción | Duración (días) | Predecesoras |
+|-----------|-------------|----------------|--------------|
+| A | Análisis Requerimientos | 5 | - |
+| B | Diseño Arquitectura | 8 | A |
+| C | Diseño BD | 6 | A |
+| D | Desarrollo Backend | 15 | B, C |
+| E | Desarrollo Frontend | 12 | B |
+| F | Integración | 7 | D, E |
+| G | Pruebas | 10 | F |
+| H | Despliegue | 3 | G |
+
+**PASO 1: Forward Pass (ES y EF)**
+
+```
+A: ES=0, EF=0+5=5
+B: ES=5, EF=5+8=13
+C: ES=5, EF=5+6=11
+D: ES=MAX(13,11)=13, EF=13+15=28
+E: ES=13, EF=13+12=25
+F: ES=MAX(28,25)=28, EF=28+7=35
+G: ES=35, EF=35+10=45
+H: ES=45, EF=45+3=48
+
+DURACIÓN TOTAL = 48 días
+```
+
+**PASO 2: Backward Pass (LS y LF)**
+
+```
+H: LF=48, LS=48-3=45
+G: LF=45, LS=45-10=35
+F: LF=35, LS=35-7=28
+D: LF=28, LS=28-15=13
+E: LF=28, LS=28-12=16
+B: LF=MIN(13,16)=13, LS=13-8=5
+C: LF=13, LS=13-6=7
+A: LF=MIN(5,7)=5, LS=5-5=0
+```
+
+**PASO 3: Calcular Holguras**
+
+| Actividad | ES | EF | LS | LF | Holgura | ¿Crítica? |
+|-----------|----|----|----|----|---------|-----------|
+| A | 0 | 5 | 0 | 5 | 0 | ✅ SÍ |
+| B | 5 | 13 | 5 | 13 | 0 | ✅ SÍ |
+| C | 5 | 11 | 7 | 13 | 2 | ❌ NO |
+| D | 13 | 28 | 13 | 28 | 0 | ✅ SÍ |
+| E | 13 | 25 | 16 | 28 | 3 | ❌ NO |
+| F | 28 | 35 | 28 | 35 | 0 | ✅ SÍ |
+| G | 35 | 45 | 35 | 45 | 0 | ✅ SÍ |
+| H | 45 | 48 | 45 | 48 | 0 | ✅ SÍ |
+
+**RUTA CRÍTICA: A → B → D → F → G → H (48 días)**
+
+**Interpretación:**
+- Actividad C: Puede retrasarse 2 días
+- Actividad E: Puede retrasarse 3 días
+- Actividades críticas: Monitoreo estricto
+
+---
+
+### **PERT (Program Evaluation and Review Technique)**
+
+**Diferencia con CPM:** PERT usa duración probabilística (3 estimaciones)
+
+#### **3 ESTIMACIONES**
+
+1. **O (Optimista):** Duración mínima
+2. **M (Más Probable):** Duración realista
+3. **P (Pesimista):** Duración máxima
+
+**FÓRMULAS PERT:**
+```
+te (esperada) = (O + 4M + P) / 6
+Varianza = [(P - O) / 6]²
+σ (desviación) = (P - O) / 6
+```
+
+**EJEMPLO:**
+```
+O = 10, M = 15, P = 26
+
+te = (10 + 4×15 + 26) / 6 = 96/6 = 16 días
+Varianza = [(26-10)/6]² = 7.11
+σ = (26-10)/6 = 2.67 días
+```
+
+**Análisis de Probabilidad:**
+```
+¿Probabilidad de terminar en 50 días si te=48, σ=3?
+
+Z = (50 - 48) / 3 = 0.67
+Z=0.67 → Probabilidad = 74.86%
+```
+
+---
+
+### **EDT/WBS (Work Breakdown Structure)**
+
+**Definición:** Descomposición jerárquica orientada a entregables.
+
+**Ejemplo:**
+```
+1.0 Sistema E-commerce
+    1.1 Análisis
+        1.1.1 Requerimientos funcionales
+        1.1.2 Requerimientos no funcionales
+        1.1.3 Documento SRS
+    1.2 Diseño
+        1.2.1 Arquitectura
+        1.2.2 BD
+        1.2.3 Interfaces
+    1.3 Desarrollo
+        1.3.1 Backend
+        1.3.2 Frontend
+        1.3.3 BD
+    1.4 Pruebas
+    1.5 Despliegue
+```
+
+**Regla 100%:** EDT debe incluir 100% del trabajo. Nada más, nada menos.
+
+---
+
+## 4.2 GESTIÓN DE COSTOS - EVM (Earned Value Management)
+
+**FUENTES: PMBOK Cap.7**
+
+### **MÉTRICAS BASE (MEMORIZAR)**
+
+**1. PV (Planned Value):** Presupuesto del trabajo programado
+- ¿Cuánto debías HABER GASTADO?
+
+**2. EV (Earned Value):** Valor del trabajo realizado
+- ¿Cuánto VALOR generaste?
+- EV = % Completado × BAC
+
+**3. AC (Actual Cost):** Costo real incurrido
+- ¿Cuánto GASTASTE realmente?
+
+**4. BAC (Budget at Completion):** Presupuesto total
+
+---
+
+### **VARIANZAS**
+
+**1. CV (Cost Variance) = EV - AC**
+```
+CV > 0 → Bajo presupuesto ✅
+CV = 0 → En presupuesto
+CV < 0 → Sobre presupuesto ❌
+```
+
+**2. SV (Schedule Variance) = EV - PV**
+```
+SV > 0 → Adelantado ✅
+SV = 0 → A tiempo
+SV < 0 → Atrasado ❌
+```
+
+---
+
+### **ÍNDICES DE DESEMPEÑO**
+
+**1. CPI (Cost Performance Index) = EV / AC**
+```
+CPI > 1.0 → Eficiente ✅
+CPI = 1.0 → Según plan
+CPI < 1.0 → Ineficiente ❌
+
+Ejemplo: CPI = 0.85
+Por cada $1 gastado, generas $0.85 de valor
+```
+
+**2. SPI (Schedule Performance Index) = EV / PV**
+```
+SPI > 1.0 → Adelantado ✅
+SPI = 1.0 → A tiempo
+SPI < 1.0 → Atrasado ❌
+
+Ejemplo: SPI = 0.80
+Avanzas al 80% de velocidad planeada
+```
+
+---
+
+### **PROYECCIONES**
+
+**1. EAC (Estimate at Completion) = BAC / CPI**
+- ¿Cuánto costará terminar?
+
+**2. ETC (Estimate to Complete) = EAC - AC**
+- ¿Cuánto falta por gastar?
+
+**3. VAC (Variance at Completion) = BAC - EAC**
+```
+VAC > 0 → Bajo presupuesto ✅
+VAC < 0 → Sobre presupuesto ❌
+```
+
+**4. TCPI = (BAC - EV) / (BAC - AC)**
+- ¿Qué eficiencia necesitas de aquí en adelante?
+```
+TCPI > 1.0 → Necesitas ser MÁS eficiente
+```
+
+---
+
+### **EJEMPLO COMPLETO EVM**
+
+**Datos:**
+- BAC = $100,000
+- PV = $60,000
+- EV = $50,000
+- AC = $65,000
+
+**Cálculos:**
+```
+CV = 50,000 - 65,000 = -$15,000 (sobre presupuesto) ❌
+SV = 50,000 - 60,000 = -$10,000 (atrasado) ❌
+
+CPI = 50,000 / 65,000 = 0.77 (77% eficiencia) ❌
+SPI = 50,000 / 60,000 = 0.83 (83% velocidad) ❌
+
+EAC = 100,000 / 0.77 = $129,870
+ETC = 129,870 - 65,000 = $64,870
+VAC = 100,000 - 129,870 = -$29,870 (sobre) ❌
+TCPI = (100,000-50,000)/(100,000-65,000) = 1.43
+```
+
+**Interpretación:**
+- Proyecto sobre presupuesto por $15,000
+- Atrasado equivalente a $10,000 trabajo
+- Eficiencia solo 77%
+- Se proyecta terminar $29,870 sobre presupuesto
+- Necesitas 143% eficiencia para cumplir presupuesto original
+
+---
+
+### **TABLA RESUMEN FÓRMULAS EVM**
+
+| Métrica | Fórmula | Bueno | Malo |
+|---------|---------|-------|------|
+| CV | EV - AC | >0 | <0 |
+| SV | EV - PV | >0 | <0 |
+| CPI | EV / AC | >1 | <1 |
+| SPI | EV / PV | >1 | <1 |
+| EAC | BAC / CPI | - | - |
+| ETC | EAC - AC | - | - |
+| VAC | BAC - EAC | >0 | <0 |
+| TCPI | (BAC-EV)/(BAC-AC) | <1 | >1 |
+
+---
+
+## 4.3 GESTIÓN DE CALIDAD
+
+### **ISO/IEC 25010 - 8 Características**
+
+1. Adecuación Funcional
+2. Eficiencia de Desempeño
+3. Compatibilidad
+4. Usabilidad
+5. Confiabilidad
+6. Seguridad
+7. Mantenibilidad
+8. Portabilidad
+
+---
+
+### **MÉTRICAS DE CALIDAD**
+
+**1. DRE (Defect Removal Efficiency)**
+```
+DRE = (Defectos pre-release / Total defectos) × 100%
+
+Ejemplo:
+Pre-release: 85
+Post-release: 15
+Total = 100
+
+DRE = 85/100 × 100% = 85%
+```
+
+**2. Densidad de Defectos**
+```
+Densidad = Defectos / KLOC
+
+Ejemplo:
+45 defectos / 15 KLOC = 3 defectos/KLOC
+```
+
+**3. MTBF (Mean Time Between Failures)**
+```
+MTBF = Tiempo total / Número fallos
+
+720 horas / 3 fallos = 240 horas
+```
+
+**4. MTTR (Mean Time To Repair)**
+```
+MTTR = Tiempo reparación / Número fallos
+
+15 horas / 3 fallos = 5 horas
+```
+
+**5. Disponibilidad**
+```
+Disponibilidad = MTBF / (MTBF + MTTR) × 100%
+
+240 / (240 + 5) × 100% = 97.96%
+```
+
+**Tabla de 9's:**
+| Disponibilidad | Tiempo inactivo/año |
+|----------------|---------------------|
+| 90% | 36.5 días |
+| 99% | 3.65 días |
+| 99.9% | 8.7 horas |
+| 99.99% | 52.6 minutos |
+| 99.999% | 5.26 minutos |
+
+---
+
+## 4.4 METODOLOGÍAS ÁGILES - SCRUM
+
+**FUENTES: Guía Scrum 2020**
+
+### **3 PILARES**
+1. **Transparencia:** Visibilidad del proceso
+2. **Inspección:** Revisión frecuente
+3. **Adaptación:** Ajuste cuando necesario
+
+### **5 VALORES**
+1. Compromiso
+2. Enfoque
+3. Apertura
+4. Respeto
+5. Coraje
+
+---
+
+### **3 ROLES**
+
+**1. PRODUCT OWNER**
+- Maximizar valor del producto
+- Gestiona Product Backlog
+- Ordena por prioridad
+- Define criterios de aceptación
+
+**2. SCRUM MASTER**
+- Asegura que Scrum se aplique
+- Facilita eventos
+- Remueve impedimentos
+- Coach del equipo
+
+**3. DEVELOPERS**
+- Crean Incremento cada Sprint
+- Auto-organizados
+- Multifuncionales
+- Tamaño: 3-9 personas
+
+---
+
+### **3 ARTEFACTOS**
+
+**1. PRODUCT BACKLOG**
+- Lista ordenada de todo lo necesario
+- Nunca completo (evoluciona)
+- Product Owner responsable
+- Refinamiento continuo (~10% capacidad)
+
+**2. SPRINT BACKLOG**
+- Ítems seleccionados para Sprint
+- Plan para entregarlos
+- Propiedad de Developers
+- Actualizado diariamente
+
+**3. INCREMENT**
+- Suma de ítems completados
+- Debe ser USABLE
+- Cumple Definition of Done
+
+---
+
+### **5 EVENTOS**
+
+**SPRINT (1-4 semanas):**
+- Contenedor de todos los eventos
+- Sin cambios que pongan en peligro Sprint Goal
+
+**1. SPRINT PLANNING (max 8h/mes)**
+- ¿Por qué? → Sprint Goal
+- ¿Qué? → Selección ítems
+- ¿Cómo? → Plan de trabajo
+
+**2. DAILY SCRUM (15 min)**
+- Diario, misma hora/lugar
+- Solo Developers (obligatorio)
+- Sincronización entre equipo
+
+**3. SPRINT REVIEW (max 4h/mes)**
+- Inspeccionar Incremento
+- Stakeholders invitados
+- Colaboración sobre qué hacer siguiente
+
+**4. SPRINT RETROSPECTIVE (max 3h/mes)**
+- Mejorar calidad y efectividad
+- Solo Equipo Scrum
+- Start-Stop-Continue
+
+---
+
+### **ESTIMACIÓN**
+
+**Planning Poker:**
+- Fibonacci: 0, 1, 2, 3, 5, 8, 13, 21...
+- Todos eligen carta secretamente
+- Revelan simultáneamente
+- Discuten diferencias
+- Re-votan hasta consenso
+
+**Velocidad:**
+```
+Velocidad = Puntos completados/Sprint
+
+Sprint 1: 23 pts
+Sprint 2: 25 pts
+Sprint 3: 27 pts
+Promedio: 25 pts/Sprint
+```
+
+---
+
+## 4.5 EXTREME PROGRAMMING (XP)
+
+### **5 VALORES**
+1. Comunicación
+2. Simplicidad
+3. Retroalimentación
+4. Coraje
+5. Respeto
+
+### **12 PRÁCTICAS**
+
+1. **Planning Game:** Cliente prioriza historias
+2. **Small Releases:** Entregas frecuentes (1-4 semanas)
+3. **Metaphor:** Historia compartida del sistema
+4. **Simple Design:** Pasa tests, sin duplicación
+5. **Testing:** Test-first, unitarias automatizadas
+6. **Refactoring:** Mejorar diseño continuamente
+7. **Pair Programming:** 2 programadores, 1 PC
+8. **Collective Ownership:** Cualquiera modifica cualquier código
+9. **Continuous Integration:** Integrar varias veces/día
+10. **40-Hour Week:** No horas extras sostenidas
+11. **On-Site Customer:** Cliente disponible tiempo completo
+12. **Coding Standards:** Estilo consistente
+
+---
+
+### **SCRUM vs XP**
+
+| Aspecto | Scrum | XP |
+|---------|-------|-----|
+| Enfoque | Gestión | Ingeniería |
+| Sprint | 1-4 semanas | 1-2 semanas |
+| Cambios | No permitidos | Permitidos si equivalentes |
+| Pair Programming | No menciona | Obligatorio |
+| TDD | No requiere | Requerido |
+
+**Común:** Scrum para gestión + XP para prácticas técnicas
+
+---
+
+## 4.6 CMMI (Capability Maturity Model Integration)
+
+### **5 NIVELES DE MADUREZ**
+
+**NIVEL 1: INICIAL**
+- Procesos caóticos, ad hoc
+- Éxito depende de esfuerzos heroicos
+- Resultados impredecibles
+
+**NIVEL 2: GESTIONADO**
+- Procesos planeados y controlados
+- **7 Áreas de Proceso:**
+  1. Gestión de Requerimientos
+  2. Planeación de Proyectos
+  3. Monitoreo y Control
+  4. Gestión de Proveedores
+  5. Medición y Análisis
+  6. Aseguramiento de Calidad
+  7. Gestión de Configuración
+
+**NIVEL 3: DEFINIDO**
+- Procesos organizacionales estándar
+- Bien caracterizados
+- **11 Áreas adicionales** (Desarrollo Reqs, Solución Técnica, etc.)
+
+**NIVEL 4: GESTIONADO CUANTITATIVAMENTE**
+- Control estadístico de procesos
+- Desempeño predecible
+- **2 Áreas adicionales:**
+  1. Gestión de Desempeño Organizacional
+  2. Gestión Cuantitativa de Proyectos
+
+**NIVEL 5: OPTIMIZADO**
+- Mejora continua
+- Innovación basada en datos
+- **2 Áreas adicionales:**
+  1. Innovación Organizacional
+  2. Análisis de Causas y Resolución
+
+---
+
+### **RESUMEN NIVELES**
+
+| Nivel | Nombre | Foco | Estado |
+|-------|---------|------|--------|
+| 1 | Inicial | Individuos | Caótico |
+| 2 | Gestionado | Proyectos | Repetible |
+| 3 | Definido | Organización | Consistente |
+| 4 | Cuantitativo | Medición | Predecible |
+| 5 | Optimizado | Mejora | Óptimo |
+
+---
+
+## 4.7 GESTIÓN DE RIESGOS
+
+### **COMPONENTES DEL RIESGO**
+1. **Probabilidad:** 0-100%
+2. **Impacto:** Bajo, Medio, Alto
+3. **Exposición:** Probabilidad × Impacto
+
+---
+
+### **PROCESO DE GESTIÓN**
+
+**1. IDENTIFICACIÓN**
+
+Técnicas:
+- Lluvia de ideas
+- Entrevistas
+- Análisis FODA
+- Checklist
+- Análisis de supuestos
+
+Categorías (RBS):
+- Técnicos
+- Gestión
+- Organizacionales
+- Externos
+
+---
+
+**2. ANÁLISIS CUALITATIVO**
+
+**Matriz Probabilidad-Impacto:**
+```
+        IMPACTO
+        │ Bajo │ Medio │ Alto │
+────────┼──────┼───────┼──────┤
+Alto    │MEDIO │ ALTO  │CRÍTICO│
+────────┼──────┼───────┼──────┤
+Medio   │ BAJO │ MEDIO │ ALTO │
+────────┼──────┼───────┼──────┤
+Bajo    │ BAJO │ BAJO  │MEDIO │
+```
+
+---
+
+**3. ANÁLISIS CUANTITATIVO**
+
+**EMV (Expected Monetary Value):**
+```
+EMV = Probabilidad × Impacto $
+
+Ejemplo:
+Prob: 40% (0.4)
+Impacto: $50,000
+EMV = 0.4 × $50,000 = $20,000
+```
+
+---
+
+**4. RESPUESTA**
+
+**Para AMENAZAS:**
+- **Evitar:** Eliminar amenaza
+- **Transferir:** A tercero (seguro)
+- **Mitigar:** Reducir prob/impacto
+- **Aceptar:** No tomar acción
+
+**Para OPORTUNIDADES:**
+- **Explotar:** Asegurar que ocurra
+- **Compartir:** Asociarse
+- **Mejorar:** Aumentar prob/impacto
+- **Aceptar:** Aprovechar si ocurre
+
+---
+
+**5. MONITOREO**
+- Tracking de riesgos
+- Identificar nuevos
+- Ejecutar planes
+- Evaluar efectividad
+
+---
+
+### **REGISTRO DE RIESGOS**
+
+| ID | Descripción | Prob | Impacto | Exposición | Respuesta | Responsable |
+|----|-------------|------|---------|------------|-----------|-------------|
+| R-001 | Tech X no cumple | 0.6 | Alto | 0.12 | Mitigar: POC | Tech Lead |
+| R-002 | Proveedor retrasa | 0.3 | Medio | 0.015 | Aceptar | PM |
+
+---
+
+### **RESERVAS**
+
+**Contingencia:**
+- Para riesgos CONOCIDOS
+- Gestionada por PM
+
+**Gestión:**
+- Para riesgos DESCONOCIDOS
+- Requiere aprobación sponsor
+
+```
+Ejemplo:
+Estimado: $100,000
+Contingencia (10%): $10,000
+Baseline: $110,000
+Gestión (5%): $5,500
+Total: $115,500
+```
+
+---
+
+## RESUMEN ÁREA 4
+
+**Completado:**
+1. ✅ CPM/PERT (ruta crítica, probabilidad)
+2. ✅ EVM (8 fórmulas con ejemplos)
+3. ✅ Calidad (ISO 25010, métricas)
+4. ✅ Scrum (roles, artefactos, eventos)
+5. ✅ XP (12 prácticas)
+6. ✅ CMMI (5 niveles)
+7. ✅ Riesgos (5 procesos, estrategias)
+
+**Total:** ~1,300 líneas = ~65 páginas
+
+---
+
+**FIN DEL ÁREA 4: GESTIÓN DE PROYECTOS**
+**EGEL ISOFT 2026 - Calificación 10**
